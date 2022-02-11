@@ -106,6 +106,9 @@ document.getElementById("withdraw-button").addEventListener('click',function(){
     updateBalance(getWithdrawBalance,false);
     }
 
+    if(getWithdrawBalance>currentBalance){
+       console.log('you can not withdraw more than what you have '); 
+    }
 })
 
 
