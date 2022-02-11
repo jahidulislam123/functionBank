@@ -22,6 +22,22 @@ function updateTotalField(totalFieldID,currentDepositAmount){
     depositTotal.innerText=currentDepositAmount+previousgetDepositTotal;
 }
 
+function updateBalance (currentDepositAmount,isAdd){
+    const totalPreviousBalance =document.getElementById('balance-total');
+    const totalPreviousBalanceText = totalPreviousBalance.innerText;
+    const totalBalance=parseFloat(totalPreviousBalanceText);
+    if(isAdd==true){
+        totalPreviousBalance.innerText=totalBalance+currentDepositAmount;
+
+
+    }
+    else{
+        totalPreviousBalance.innerText=totalBalance-currentDepositAmount;
+
+
+    }
+}
+
 // console.log(currentDepositAmount);
 document.getElementById('deposit-button').addEventListener('click',function(){
 
@@ -42,12 +58,11 @@ document.getElementById('deposit-button').addEventListener('click',function(){
      updateTotalField('deposit-total',currentDepositAmount);
 
 
-    const totalPreviousBalance =document.getElementById('balance-total');
-    const totalPreviousBalanceText = totalPreviousBalance.innerText;
-    const totalBalance=parseFloat(totalPreviousBalanceText);
-    totalPreviousBalance.innerText=totalBalance+currentDepositAmount;
-    console.log(totalBalance);
-
+    // const totalPreviousBalance =document.getElementById('balance-total');
+    // const totalPreviousBalanceText = totalPreviousBalance.innerText;
+    // const totalBalance=parseFloat(totalPreviousBalanceText);
+    // totalPreviousBalance.innerText=totalBalance+currentDepositAmount;
+    updateBalance(currentDepositAmount,true);
 
 });
 
@@ -69,12 +84,12 @@ document.getElementById("withdraw-button").addEventListener('click',function(){
     //  getWithdrawPreviousBalance.innerText= withdrawPreviousBalance+getWithdrawBalance;
     //  getWithdrawInput.value='';
 
-     const totalPreviousBalance2 =document.getElementById('balance-total');
-     const totalPreviousBalanceText2 = totalPreviousBalance2.innerText;
-     const totalBalance2=parseFloat(totalPreviousBalanceText2);
-     totalPreviousBalance2.innerText=totalBalance2-getWithdrawBalance;
+    //  const totalPreviousBalance2 =document.getElementById('balance-total');
+    //  const totalPreviousBalanceText2 = totalPreviousBalance2.innerText;
+    //  const totalBalance2=parseFloat(totalPreviousBalanceText2);
+    //  totalPreviousBalance2.innerText=totalBalance2-getWithdrawBalance;
 
-
+updateBalance(getWithdrawBalance,false);
 
     
 
